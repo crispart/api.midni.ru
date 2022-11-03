@@ -1,1 +1,30 @@
+server:
+  port: 9000
+  error:
+    include-message: always
+    include-stacktrace: always
+    whitelabel:
+      enabled: false
 
+spring:
+  application:
+    name: api.midni.ru
+  devtools:
+    livereload:
+      port: 90000
+  datasource:
+    url: jdbc:postgresql://localhost/midni_db #jdbc:postgresql://localhost/alinsia_contact_db
+    username: midni_user
+    password: 0000000000000000
+  jpa:
+    generate-ddl: true
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+    hibernate:
+      ddl-auto: update #validate #create-drop
+    open-in-view: false
+
+http:
+  request-timeout: 5000
