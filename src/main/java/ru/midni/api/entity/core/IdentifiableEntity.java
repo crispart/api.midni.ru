@@ -25,10 +25,10 @@ public class IdentifiableEntity {
   private String id;
 
   @Column(name = "created_at", columnDefinition = "timestamp", updatable = false, nullable = false)
-  private LocalDateTime createdAt;
+  private LocalDateTime createdAt; // todo: установить значение по умолчанию
 
   @Column(name = "updated_at", columnDefinition = "timestamp", nullable = false)
-  private LocalDateTime updatedAt;
+  private LocalDateTime updatedAt; // todo: установить значение по умолчанию
 
   @Builder.Default
   @Column(name = "is_deleted", columnDefinition = "boolean", nullable = false)
