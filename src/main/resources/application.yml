@@ -13,9 +13,9 @@ spring:
     livereload:
       port: 90000
   datasource:
-    url: jdbc:postgresql://localhost/midni_db #jdbc:postgresql://localhost/alinsia_contact_db
+    url: jdbc:postgresql://localhost/midni_db
     username: midni_user
-    password: 0000000000000000
+    password: 1&8NBD@oBq#&IUpi0x
   jpa:
     generate-ddl: true
     properties:
@@ -25,6 +25,14 @@ spring:
     hibernate:
       ddl-auto: update #validate #create-drop
     open-in-view: false
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://midni.eu.auth0.com/
 
 http:
   request-timeout: 5000
+
+auth0:
+  audience: https://api.midni.ru
