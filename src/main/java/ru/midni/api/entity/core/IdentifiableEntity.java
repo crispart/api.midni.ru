@@ -20,7 +20,7 @@ public class IdentifiableEntity {
 
   @Id
   @GeneratedValue(generator = "id")
-  @GenericGenerator(name = "id", strategy = "ru.midni.api.entity.generator.IdGenerator")
+  @GenericGenerator(name = "id", strategy = "ru.midni.api.entity.generator.IdentifierGenerator")
   @Column(name = "id", columnDefinition = "varchar(26)", updatable = false, nullable = false)
   private String id;
 
