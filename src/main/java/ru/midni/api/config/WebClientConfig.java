@@ -17,15 +17,15 @@ import java.util.concurrent.TimeUnit;
 public class WebClientConfig {
 
   @Value("${http.request-timeout}")
-  private Integer REQUEST_TIMEOUT;
+  private Integer requestTimeout;
 
   @Bean
   public WebClient initWebClient() {
     final TcpClient tcpClient = TcpClient.create()
-        .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, REQUEST_TIMEOUT)
+        .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, requestTimeout)
         .doOnConnected(connection -> {
-          connection.addHandlerLast(new ReadTimeoutHandler(REQUEST_TIMEOUT, TimeUnit.MILLISECONDS));
-          connection.addHandlerLast(new WriteTimeoutHandler(REQUEST_TIMEOUT, TimeUnit.MILLISECONDS));
+          connection.addHandlerLast(new ReadTimeoutHandler(requestTimeout, TimeUnit.MILLISECONDS));
+          connection.addHandlerLast(new WriteTimeoutHandler(requestTimeout, TimeUnit.MILLISECONDS));
         });
 
     return WebClient.builder()
